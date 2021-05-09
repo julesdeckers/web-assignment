@@ -1,25 +1,22 @@
 import React from 'react';
+import { TinaProvider, TinaCMS } from 'tinacms';
+import EditButton from "components/Button/EditButton"
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const cms = new TinaCMS({
+    sidebar: true,
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TinaProvider cms={cms}>
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+        </header>
+      </div>
+      <EditButton />
+    </TinaProvider>
   );
 }
 
